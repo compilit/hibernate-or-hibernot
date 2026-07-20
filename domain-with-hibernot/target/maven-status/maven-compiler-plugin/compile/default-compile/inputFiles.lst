@@ -1,0 +1,8 @@
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/domain/JdbcOrderRepository.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/domain/User.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/domain/UserService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/domain/UserRepository.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/infrastructure/GeneralUserRepository.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/application/GeneralUserService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/presentation/UserController.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernot/src/main/java/com.compilit/domain/Customer.java

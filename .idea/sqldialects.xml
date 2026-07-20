@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/domain-with-hibernate/src/main/resources/db/changelog/changes/001-create-user-table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/domain-with-hibernate/src/main/resources/db/changelog/changes/002-create-order-table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/domain-with-hibernate/src/main/resources/db/changelog/changes/003-create-order-line-table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/domain-with-hibernate/src/main/resources/db/changelog/changes/init-user.sql" dialect="PostgreSQL" />
+  </component>
+</project>

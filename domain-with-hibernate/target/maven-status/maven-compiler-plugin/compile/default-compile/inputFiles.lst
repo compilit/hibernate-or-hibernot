@@ -1,0 +1,15 @@
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/ToHibernateOrNot.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/application/CustomerOrderService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/application/GeneralUserService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/Customer.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/Order.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/OrderLine.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/OrderRepository.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/OrderService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/SecurityContext.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/User.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/UserRepository.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/domain/UserService.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/infrastructure/UserSecurityContext.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/presentation/OrderController.java
+/Users/compilit/IdeaProjects/hibernate-or-hibernot/domain-with-hibernate/src/main/java/com/compilit/presentation/UserController.java
