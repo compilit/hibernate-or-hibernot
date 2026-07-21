@@ -13,24 +13,37 @@
 
   <profiles>
     <profile>
-      <id>hibernate</id>
+      <id>spring-boot-data-jpa</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.compilit</groupId>
+          <artifactId>domain-with-spring-boot-data-jpa</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
+      <id>spring-data-jdbc</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
       <dependencies>
         <dependency>
           <groupId>com.compilit</groupId>
-          <artifactId>domain-with-hibernate</artifactId>
+          <artifactId>domain-with-spring-data-jdbc</artifactId>
           <version>${project.version}</version>
         </dependency>
       </dependencies>
     </profile>
     <profile>
-      <id>hibernot</id>
+      <id>none</id>
       <dependencies>
         <dependency>
           <groupId>com.compilit</groupId>
-          <artifactId>domain-with-hibernot</artifactId>
+          <artifactId>domain-without-any-nonsense</artifactId>
           <version>${project.version}</version>
         </dependency>
       </dependencies>

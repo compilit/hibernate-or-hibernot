@@ -1,6 +1,6 @@
 package com.compilit.presentation;
 
-import com.compilit.domain.api.UserDTO;
+import com.compilit.domain.api.CustomerDTO;
 import com.compilit.domain.api.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +18,7 @@ class UserController {
   }
 
   @PostMapping
-  public void createUser(@RequestBody UserDTO user) {
+  public void createUser(@RequestBody CustomerDTO user) {
     userService.createUser(user);
   }
 }

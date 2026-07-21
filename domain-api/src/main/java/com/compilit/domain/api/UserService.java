@@ -1,8 +1,12 @@
 package com.compilit.domain.api;
 
+import java.util.Optional;
+
 public interface UserService {
 
-  void createUser(UserDTO user);
+  void createUser(CustomerDTO user);
 
-  void authenticateUser(String username, byte[] password);
+  boolean exists(String username);
+
+  Optional<CustomerDTO> find(String username);
 }

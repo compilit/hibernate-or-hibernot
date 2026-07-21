@@ -13,13 +13,12 @@ public final class PostgresContainerFactory {
   }
 
   public static PostgreSQLContainer newContainer() {
-    var postgresImage = DockerImageName.parse("postgis/postgres:17-master")
+    var postgresImage = DockerImageName.parse("postgres:18.4")
                                   .asCompatibleSubstituteFor("postgres");
     try (var container = new PostgreSQLContainer(postgresImage)
       .withDatabaseName("tohibernate")
       .withUsername("sa")
-      .withPassword("sa")
-      .withInitScript("init-user.sql")) {
+      .withPassword("sa")) {
       return container;
     }
   }

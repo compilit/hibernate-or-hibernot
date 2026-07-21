@@ -1,0 +1,8 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yaml
+
+compilit:
+  admin:
+    username: "admin@compilit.com"
+    password: "BadPracticeMakesPerfect"

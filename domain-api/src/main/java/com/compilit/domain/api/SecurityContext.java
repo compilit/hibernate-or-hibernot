@@ -1,9 +1,8 @@
 package com.compilit.domain.api;
 
 public interface SecurityContext {
-  String getPrincipal();
 
-  void authenticate(String email, byte[] rawPassword, String encodedPassword);
+  String getPrincipal();
 
   String encodePassword(String password);
 }

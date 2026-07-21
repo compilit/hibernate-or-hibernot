@@ -1,33 +1,42 @@
 package com.compilit.application;
 
-import com.compilit.domain.User;
-import com.compilit.domain.UserRepository;
-import com.compilit.domain.api.SecurityContext;import com.compilit.domain.api.UserDTO;
+import com.compilit.domain.Customer;
+import com.compilit.domain.CustomerRepository;
+import com.compilit.domain.api.CustomerDTO;
+import com.compilit.domain.api.SecurityContext;
 import com.compilit.domain.api.UserService;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
 class GeneralUserService implements UserService {
 
-  private final UserRepository userRepository;
+  private final CustomerRepository userRepository;
   private final SecurityContext securityContext;
 
-  GeneralUserService(UserRepository userRepository, SecurityContext securityContext) {
+  GeneralUserService(
+    CustomerRepository userRepository,
+    SecurityContext securityContext
+  ) {
     this.userRepository = userRepository;
     this.securityContext = securityContext;
   }
 
   @Override
-  public void createUser(UserDTO user) {
+  public void createUser(CustomerDTO user) {
     var encodedPassword = securityContext.encodePassword(user.password());
-    var newUser = new User(user.email(), encodedPassword);
+    var newUser = new Customer(user.email(), encodedPassword);
     userRepository.save(newUser);
   }
 
   @Override
-  public void authenticateUser(String username, byte[] password) {
-    userRepository.findById(username).ifPresent(user -> {
-      user.authenticate(securityContext, password);
-    });
+  public boolean exists(String username) {
+    return userRepository.existsById(username);
+
+  }
+
+  @Override
+  public Optional<CustomerDTO> find(String username) {
+    return userRepository.findById(username).map(Customer::toCustomerDTO);
   }
 }
