@@ -1,5 +1,6 @@
 package com.compilit.domain;
 
+import com.compilit.domain.api.OrderDTO;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,8 @@ public class Order {
     this.orderLines.add(orderLine);
   }
 
-  public DTO toDTO() {
-    return new DTO(orderLines.stream().map(OrderLine::toDTO).toList());
+  public OrderDTO toDTO() {
+    return new OrderDTO(orderLines.stream().map(OrderLine::toDTO).toList());
   }
 
-  public record DTO(List<OrderLine.DTO> orderLines) {}
 }

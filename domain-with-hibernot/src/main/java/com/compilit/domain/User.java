@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.github.dockerjava.api.exception.UnauthorizedException;
+import com.compilit.domain.api.SecurityContext;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,15 +16,13 @@ public class User {
     this.password = password;
   }
 
-  public void authenticate(PasswordEncoder passwordEncoder, byte[] password) {
-    if (passwordEncoder.matches(new String(password), this.password)) {
-      var authentication = new UsernamePasswordAuthenticationToken(email, null);
-      SecurityContextHolder.getContext().setAuthentication(authentication);
-    } else {
-      throw new UnauthorizedException("Invalid credentials");
-    }
+
+  public void authenticate(SecurityContext securityContext, byte[] password) {
+    securityContext.authenticate(this.email, password, this.password);
   }
 
-  public record DTO(String email, String password) {}
+  public void changePassword(String password) {
+    this.password = password;
+  }
 
 }

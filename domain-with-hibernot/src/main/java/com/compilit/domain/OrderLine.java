@@ -1,16 +1,32 @@
 package com.compilit.domain;
 
-public record OrderLine(String productName, double price, int amount) {
+import com.compilit.domain.api.OrderLineDTO;
+import java.util.UUID;
 
-  public DTO toDTO() {
-    return new DTO(productName, price, amount);
+public class OrderLine {
+
+  private UUID id;
+  private String productName;
+  private double price;
+  private int amount;
+
+  public OrderLine(UUID id, String productName, double price, int amount) {
+    this.id = id;
+    this.productName = productName;
+    this.price = price;
+    this.amount = amount;
   }
 
-  public static OrderLine from(DTO dto) {
-    return new OrderLine(dto.productName(), dto.price(), dto.amount());
+  public OrderLineDTO toDTO() {
+    return new OrderLineDTO(productName, price, amount);
   }
 
-  public record DTO(String productName, double price, int amount) {
-    //This exists because of the SRP: these objects have different reasons to change and different stakeholders.
+  public UUID getId() {
+    return id;
   }
+
+  public static OrderLine from(OrderLineDTO dto) {
+    return new OrderLine(null, dto.productName(), dto.price(), dto.amount());
+  }
+
 }

@@ -6,18 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="domain-with-hibernate" />
+        <module name="presentation" />
+        <module name="application" />
         <module name="domain-with-hibernot" />
+        <module name="infrastructure" />
+        <module name="domain-api" />
+        <module name="domain-with-hibernate" />
+        <module name="main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="application" target="25" />
       <module name="application (1)" target="25" />
       <module name="application (2)" target="25" />
       <module name="application-layer" target="25" />
       <module name="core" target="25" />
-      <module name="infrastructure" target="25" />
-      <module name="presentation" target="25" />
     </bytecodeTargetLevel>
   </component>
 </project>

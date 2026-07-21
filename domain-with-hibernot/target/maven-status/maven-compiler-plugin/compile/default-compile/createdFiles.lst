@@ -1,3 +1,5 @@
-com/compilit/domain/JdbcOrderRepository.class
-com/compilit/domain/User$DTO.class
+com/compilit/domain/Order.class
 com/compilit/domain/User.class
+com/compilit/domain/UserRepository.class
+com/compilit/domain/OrderRepository.class
+com/compilit/domain/OrderLine.class
