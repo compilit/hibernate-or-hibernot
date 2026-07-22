@@ -1,14 +1,15 @@
 package com.compilit.application;
 
-import com.compilit.domain.OrderOverview;
 import com.compilit.domain.OrderLine;
+import com.compilit.domain.OrderOverview;
 import com.compilit.domain.OrderRepository;
 import com.compilit.domain.api.OrderDTO;
 import com.compilit.domain.api.OrderService;
 import com.compilit.domain.api.SecurityContext;
 import java.time.Instant;
 import java.util.List;
-import java.util.UUID;import org.springframework.stereotype.Service;
+import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 @Service
 class CustomerOrderService implements OrderService {
@@ -26,13 +27,13 @@ class CustomerOrderService implements OrderService {
     var customerId = securityContext.getPrincipal();
 
     var order = new OrderOverview(
-      UUID.randomUUID(),
+      null,
       customerId,
       Instant.now(),
       newOrder.orderLines()
               .stream()
               .map(OrderLine::from)
-              .toList()
+              .collect(Collectors.toSet())
     );
 
     orderRepository.save(order);

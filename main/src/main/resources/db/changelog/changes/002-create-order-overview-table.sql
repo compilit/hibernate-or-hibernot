@@ -1,6 +1,6 @@
 CREATE TABLE order_overview
 (
-    id          UUID PRIMARY KEY,
+    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     customer_id VARCHAR(255),
     created_at  TIMESTAMP NOT NULL DEFAULT now(),
     version     BIGINT DEFAULT 0

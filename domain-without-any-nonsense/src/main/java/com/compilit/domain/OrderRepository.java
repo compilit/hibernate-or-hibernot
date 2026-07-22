@@ -1,11 +1,9 @@
 package com.compilit.domain;
 
-import com.compilit.domain.OrderOverview;
 import java.util.List;
-import java.util.UUID;
-import org.springframework.data.repository.CrudRepository;
 
-public interface OrderRepository extends CrudRepository<OrderOverview, UUID> {
+public interface OrderRepository {
 
+  void save(OrderOverview orderOverview);
   List<OrderOverview> findAllByCustomerId(String customerId);
 }

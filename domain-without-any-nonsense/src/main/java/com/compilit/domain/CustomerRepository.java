@@ -1,7 +1,9 @@
 package com.compilit.domain;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
 
-public interface CustomerRepository extends CrudRepository<Customer, String> {
+public interface CustomerRepository {
 
+  void save(Customer customer);
+  Optional<Customer> findByCustomerId(String customerId);
 }
