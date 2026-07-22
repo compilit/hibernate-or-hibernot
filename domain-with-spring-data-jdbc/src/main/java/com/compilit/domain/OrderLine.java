@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 public class OrderLine {
 
   @Id
-  private UUID id;
+  private final UUID id;
   private final String productName;
   private final int amount;
 
