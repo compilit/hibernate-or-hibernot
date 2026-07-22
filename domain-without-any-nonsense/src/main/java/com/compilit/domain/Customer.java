@@ -1,5 +1,7 @@
 package com.compilit.domain;
 
+import com.compilit.domain.api.CustomerDto;
+
 public class Customer {
 
   private final String email;
@@ -15,7 +17,8 @@ public class Customer {
     this.password = password;
   }
 
-  public String getEmail() {
-    return email;
+  public CustomerDto toDTO() {
+    return new CustomerDto(email, password);
   }
+
 }

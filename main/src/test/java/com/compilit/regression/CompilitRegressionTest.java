@@ -103,8 +103,8 @@ class CompilitRegressionTest {
     mockMvc.perform(get("/orders")
                       .header("Authorization", basicAuthHeader(TEST_CUSTOMER_EMAIL, TEST_CUSTOMER_PASSWORD)))
            .andExpect(status().isOk())
-           .andExpect(jsonPath("$..productName", hasItem("Coffee Mug")))
-           .andExpect(jsonPath("$..productName", hasItem("Notebook")));
+           .andExpect(jsonPath("$..productName", hasItem("Foo")))
+           .andExpect(jsonPath("$..productName", hasItem("Bar")));
   }
 
   @Test

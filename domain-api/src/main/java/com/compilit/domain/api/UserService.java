@@ -4,9 +4,9 @@ import java.util.Optional;
 
 public interface UserService {
 
-  void createUser(CustomerDTO user);
+  void createUser(CustomerDto user);
 
   boolean exists(String username);
 
-  Optional<CustomerDTO> find(String username);
+  Optional<CustomerDto> find(String username);
 }

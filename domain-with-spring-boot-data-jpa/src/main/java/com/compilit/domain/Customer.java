@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.api.CustomerDTO;
+import com.compilit.domain.api.CustomerDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -24,7 +24,7 @@ public class Customer {
     this.password = password;
   }
 
-  public CustomerDTO toCustomerDTO() {
-    return new CustomerDTO(email, password);
+  public CustomerDto toCustomerDTO() {
+    return new CustomerDto(email, password);
   }
 }

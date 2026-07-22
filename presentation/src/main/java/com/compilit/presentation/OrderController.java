@@ -1,6 +1,7 @@
 package com.compilit.presentation;
 
-import com.compilit.domain.api.OrderDTO;
+import com.compilit.domain.api.NewOrderDto;
+import com.compilit.domain.api.OrderDto;
 import com.compilit.domain.api.OrderService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +21,12 @@ public class OrderController {
   }
 
   @PostMapping
-  public void placeOrder(@RequestBody OrderDTO order) {
+  public void placeOrder(@RequestBody NewOrderDto order) {
     orderService.placeOrder(order);
   }
 
   @GetMapping
-  public List<OrderDTO> showOrders() {
+  public List<OrderDto> showOrders() {
     return orderService.showOrders();
   }
 }

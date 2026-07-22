@@ -1,13 +1,11 @@
 {
   "orderLines": [
     {
-      "productName": "Coffee Mug",
-      "price": 12.50,
+      "productName": "Foo",
       "amount": 2
     },
     {
-      "productName": "Notebook",
-      "price": 4.25,
+      "productName": "Bar",
       "amount": 3
     }
   ]

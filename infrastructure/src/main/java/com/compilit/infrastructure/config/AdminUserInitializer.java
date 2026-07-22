@@ -1,7 +1,7 @@
 package com.compilit.infrastructure.config;
 
 import com.compilit.domain.api.ApplicationProperties;
-import com.compilit.domain.api.CustomerDTO;
+import com.compilit.domain.api.CustomerDto;
 import com.compilit.domain.api.UserService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
@@ -22,7 +22,7 @@ class AdminUserInitializer {
     var adminUsername = applicationProperties.getAdminUsername();
     var adminPassword = applicationProperties.getAdminPassword();
     if (!userService.exists(adminUsername)) {
-      userService.createUser(new CustomerDTO(adminUsername, adminPassword));
+      userService.createUser(new CustomerDto(adminUsername, adminPassword));
     }
   }
 }

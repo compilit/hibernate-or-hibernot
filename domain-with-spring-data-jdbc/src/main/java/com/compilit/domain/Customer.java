@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.api.CustomerDTO;
+import com.compilit.domain.api.CustomerDto;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 
@@ -23,7 +23,7 @@ public class Customer {
     this.password = password;
   }
 
-  public CustomerDTO toCustomerDTO() {
-    return new CustomerDTO(email, password);
+  public CustomerDto toCustomerDTO() {
+    return new CustomerDto(email, password);
   }
 }

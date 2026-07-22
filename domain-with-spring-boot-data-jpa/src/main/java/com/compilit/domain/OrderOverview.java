@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.api.OrderDTO;
+import com.compilit.domain.api.OrderDto;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,8 +41,9 @@ public class OrderOverview {
     this.orderLines.add(orderLine);
   }
 
-  public OrderDTO toDTO() {
-    return new OrderDTO(
+  public OrderDto toDTO() {
+    return new OrderDto(
+      id,
       orderLines.stream()
                 .map(OrderLine::toDTO)
                 .toList(),

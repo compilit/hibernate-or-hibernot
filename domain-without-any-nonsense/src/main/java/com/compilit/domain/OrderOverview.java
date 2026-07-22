@@ -1,7 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.OrderLine;
-import com.compilit.domain.api.OrderDTO;
+import com.compilit.domain.api.OrderDto;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -24,10 +23,14 @@ public class OrderOverview {
     this.orderLines.add(orderLine);
   }
 
-  public OrderDTO toDTO() {
-    return new OrderDTO(orderLines.stream()
-                                  .map(OrderLine::toDTO)
-                                  .toList());
+  public OrderDto toDTO() {
+    return new OrderDto(
+      id,
+      orderLines.stream()
+                .map(OrderLine::toDTO)
+                .toList(),
+      createdAt.toString()
+    );
   }
 
   public UUID getId() {

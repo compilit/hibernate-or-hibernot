@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.api.OrderDTO;
+import com.compilit.domain.api.OrderDto;
 import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -29,8 +29,9 @@ public class OrderOverview {
     this.orderLines.add(orderLine);
   }
 
-  public OrderDTO toDTO() {
-    return new OrderDTO(
+  public OrderDto toDTO() {
+    return new OrderDto(
+      id,
       orderLines.stream()
                 .map(OrderLine::toDTO)
                 .toList(),

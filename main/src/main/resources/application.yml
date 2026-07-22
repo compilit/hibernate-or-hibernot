@@ -6,3 +6,8 @@ compilit:
   admin:
     username: "admin@compilit.com"
     password: "BadPracticeMakesPerfect"
+  products:
+    - name: "Foo"
+      price: 2.5
+    - name: "Bar"
+      price: 1.5

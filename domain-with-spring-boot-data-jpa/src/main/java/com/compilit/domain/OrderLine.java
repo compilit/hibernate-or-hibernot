@@ -1,6 +1,6 @@
 package com.compilit.domain;
 
-import com.compilit.domain.api.OrderLineDTO;
+import com.compilit.domain.api.OrderLineDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,29 +14,27 @@ public class OrderLine {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private UUID id;
   private String productName;
-  private double price;
   private int amount;
 
   public OrderLine() {
   }
 
-  public OrderLine(UUID id, String productName, double price, int amount) {
+  public OrderLine(UUID id, String productName, int amount) {
     this.id = id;
     this.productName = productName;
-    this.price = price;
     this.amount = amount;
   }
 
-  public OrderLineDTO toDTO() {
-    return new OrderLineDTO(productName, price, amount);
+  public OrderLineDto toDTO() {
+    return new OrderLineDto(productName, amount);
   }
 
   public UUID getId() {
     return id;
   }
 
-  public static OrderLine from(OrderLineDTO dto) {
-    return new OrderLine(null, dto.productName(), dto.price(), dto.amount());
+  public static OrderLine from(OrderLineDto dto) {
+    return new OrderLine(null, dto.productName(), dto.amount());
   }
 
 }

@@ -2,7 +2,7 @@ package com.compilit.application;
 
 import com.compilit.domain.Customer;
 import com.compilit.domain.CustomerRepository;
-import com.compilit.domain.api.CustomerDTO;
+import com.compilit.domain.api.CustomerDto;
 import com.compilit.domain.api.SecurityContext;
 import com.compilit.domain.api.UserService;
 import java.util.Optional;
@@ -23,7 +23,7 @@ class GeneralUserService implements UserService {
   }
 
   @Override
-  public void createUser(CustomerDTO user) {
+  public void createUser(CustomerDto user) {
     var encodedPassword = securityContext.encodePassword(user.password());
     var newUser = new Customer(user.email(), encodedPassword);
     userRepository.save(newUser);
@@ -36,7 +36,8 @@ class GeneralUserService implements UserService {
   }
 
   @Override
-  public Optional<CustomerDTO> find(String username) {
-    return userRepository.findById(username).map(Customer::toCustomerDTO);
+  public Optional<CustomerDto> find(String username) {
+    return userRepository.findById(username)
+                         .map(Customer::toCustomerDTO);
   }
 }
