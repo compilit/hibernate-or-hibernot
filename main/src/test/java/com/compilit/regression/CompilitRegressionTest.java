@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -58,11 +61,12 @@ class CompilitRegressionTest {
     var payload = readPayload("create-user-request.json");
 
     mockMvc.perform(post("/users")
-                      .header("Authorization",
-                              basicAuthHeader(
-                                applicationProperties.getAdminUsername(),
-                                applicationProperties.getAdminPassword()
-                              )
+                      .header(
+                        "Authorization",
+                        basicAuthHeader(
+                          applicationProperties.getAdminUsername(),
+                          applicationProperties.getAdminPassword()
+                        )
                       )
                       .contentType(MediaType.APPLICATION_JSON)
                       .content(payload))
@@ -78,6 +82,30 @@ class CompilitRegressionTest {
                       .contentType(MediaType.APPLICATION_JSON)
                       .content(payload))
            .andExpect(status().is2xxSuccessful());
+  }
+
+  @Test
+  void placeOrder_loadTest_isAccepted() throws Exception {
+    try (ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(100)) {
+      for (int i = 0; i < 100; i++) {
+
+        scheduledExecutorService.schedule(
+          () -> {
+            var payload = readPayload("place-order-request.json");
+            try {
+              mockMvc.perform(post("/orders")
+                                .header("Authorization", basicAuthHeader(TEST_CUSTOMER_EMAIL, TEST_CUSTOMER_PASSWORD))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(payload))
+                     .andExpect(status().is2xxSuccessful());
+            } catch (Exception e) {
+              throw new RuntimeException(e);
+            }
+
+          }, 0, TimeUnit.MILLISECONDS
+        );
+      }
+    }
   }
 
   @Test
