@@ -58,6 +58,41 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!-- Records CPU/memory/GC behaviour of the regression test JVM. One .jfr per
+               domain module, so runs across profiles (spring-boot-data-jpa vs spring-data-jdbc
+               vs none) can be compared. Inspect with `jfr summary` or `jfr print`, or open in
+               JDK Mission Control. -->
+          <argLine>-XX:StartFlightRecording=filename=${project.build.directory}/regression-${domain.module}.jfr,settings=profile</argLine>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>spring-boot-data-jpa</id>
+      <properties>
+        <domain.module>spring-boot-data-jpa</domain.module>
+      </properties>
+    </profile>
+    <profile>
+      <id>spring-data-jdbc</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <domain.module>spring-data-jdbc</domain.module>
+      </properties>
+    </profile>
+    <profile>
+      <id>none</id>
+      <properties>
+        <domain.module>none</domain.module>
+      </properties>
+    </profile>
+  </profiles>
 </project>

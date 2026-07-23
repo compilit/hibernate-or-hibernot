@@ -1,5 +1,6 @@
 package com.compilit.domain;
 
+import com.compilit.domain.api.NewOrderLineDto;
 import com.compilit.domain.api.OrderLineDto;
 import java.util.UUID;
 
@@ -23,8 +24,7 @@ public class OrderLine {
     return id;
   }
 
-  public static OrderLine from(OrderLineDto dto) {
+  public static OrderLine from(NewOrderLineDto dto) {
     return new OrderLine(null, dto.productName(), dto.amount());
   }
-
 }

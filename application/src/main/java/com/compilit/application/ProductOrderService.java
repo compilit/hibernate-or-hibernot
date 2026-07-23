@@ -4,7 +4,6 @@ import com.compilit.domain.OrderLine;
 import com.compilit.domain.OrderOverview;
 import com.compilit.domain.OrderRepository;
 import com.compilit.domain.ProductRepository;
-import com.compilit.domain.api.ApplicationProperties;
 import com.compilit.domain.api.NewOrderDto;
 import com.compilit.domain.api.OrderDto;
 import com.compilit.domain.api.OrderService;

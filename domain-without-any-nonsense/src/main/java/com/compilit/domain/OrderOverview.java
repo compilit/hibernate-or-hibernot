@@ -3,6 +3,7 @@ package com.compilit.domain;
 import com.compilit.domain.api.OrderDto;
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class OrderOverview {
@@ -10,9 +11,9 @@ public class OrderOverview {
   private final UUID id;
   private final String customerId;
   private final Instant createdAt;
-  private final List<OrderLine> orderLines;
+  private final Set<OrderLine> orderLines;
 
-  public OrderOverview(UUID id, String customerId, Instant createdAt, List<OrderLine> orderLines) {
+  public OrderOverview(UUID id, String customerId, Instant createdAt, Set<OrderLine> orderLines) {
     this.id = id;
     this.customerId = customerId;
     this.createdAt = createdAt;
